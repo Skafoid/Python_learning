@@ -1,4 +1,4 @@
-# # Задание 1, 2
+# # Задание 1
 class Person:
     def __init__(self, name, surname, age, adress):
         self.name, self.surname, self.age, self.adress = name, surname, age, adress
