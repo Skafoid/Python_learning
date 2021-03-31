@@ -1,0 +1,36 @@
+# # ______Задание 1
+# from random import randint
+#
+# inp = ''
+# string = 'Да', 'Нет'
+# while inp != 'exit':
+#     inp = input('Введите вопрос - ')
+#     print(string[randint(0, 1)])
+
+# # ______Задание 2
+# from random import randint
+#
+# inp = ''
+# string = 'Да', 'Нет'
+# answer = {}
+# while inp != 'exit':
+#     inp = input('Введите вопрос - ')
+#     if inp not in answer.keys():
+#         answer[inp] = string[randint(0, 1)]
+#
+#     print(answer[inp])
+
+
+# # ______Задание 3
+from random import randint
+from fuzzywuzzy import fuzz
+
+inp = ''
+string = 'Да', 'Нет'
+answer = {}
+while inp != 'exit':
+    inp = input('Введите вопрос - ')
+    if inp not in answer.keys():
+        answer[inp] = string[randint(0, 1)]
+
+    print(answer[inp])
