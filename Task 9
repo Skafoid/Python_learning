@@ -25,12 +25,19 @@
 from random import randint
 from fuzzywuzzy import fuzz
 
+i = None
 inp = ''
 string = 'Да', 'Нет'
+fuzzylist = [0]
 answer = {}
 while inp != 'exit':
+    fuzzylist.clear()
     inp = input('Введите вопрос - ')
-    if inp not in answer.keys():
+    if inp not in answer.keys() and fuzz.ratio(inp, i) < 70:
         answer[inp] = string[randint(0, 1)]
+        for i in answer.keys():
+            fuzzylist.append(fuzz.ratio(inp, i))
+    else:
+        print('Что-то подобное есть в базе')
+        print(i, ' - ', answer[i])
 
-    print(answer[inp])
