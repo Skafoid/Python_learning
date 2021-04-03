@@ -1,0 +1,61 @@
+# # Задание 1, 2
+class JungleBook:
+    '''Книга джунглей, рассказ о Маугли'''
+
+    def __init__(self, name, age, character):
+        self.name = name
+        self.age = age
+        self.character = character
+
+    def __repr__(self):
+        return "JungleBook('%s', '%s', '%s')" % (self.name, self.age, self.character)
+
+    def roar(self):
+        '''Персонаж начинает реветь'''
+        print(self.name + ' начинает реветь')
+
+    def run(self):
+        '''Персонаж начинает бежать'''
+
+        print(self.name + ' бежит')
+
+    def hunter(self):
+        '''Персонаж начинает охоту'''
+
+        print(self.name + ' начинает охоту')
+
+
+class Reptile(JungleBook):
+
+    def roar(self):
+        '''Данный персонаж не умеет реветь, только шипеть'''
+        print(self.name + ' начинает шипеть')
+
+    def run(self):
+        '''Персонаж не умеет бегать, только ползать'''
+
+        print(self.name + ' ползет')
+
+
+class Human(JungleBook):
+
+    def work(self):
+        '''Персонаж может работать'''
+        print(self.name + ' начал работу')
+
+maugly = Human('Maugly', '20', 'primat')
+balu = JungleBook('Balu', '50', 'caniforma')
+akella = JungleBook('Akella', '70', 'caniforma')
+bagira = JungleBook('Bagira', '30', 'feliforma')
+kaa = Reptile('Kaa', '65', 'reptile')
+hathi = JungleBook('Hathi', '45', 'elephant')
+
+print(maugly.work())
+print(akella.__repr__())
+# # Задание 3
+
+'''Была выбрана структура состоящая из 3 классов, так как были введены данные по персонажам с различными 
+характеристиками, которых может не быть у остального большинства персонажей. Эти отличия и описываются другим классом, 
+как перегрузкой методов в классе Reptile, так и добавлением нового метода в классе Human.
+ Классы Reptile и Human, наследуют методы и атрибуты материнского класса, поэтому и персонажам использующих дочерние 
+ классы, доступны все свойства материнского класса.'''
