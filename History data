@@ -1,0 +1,24 @@
+import openpyxl
+from string import digits
+
+book = openpyxl.open("Hisdata.xlsx")
+# book_res = openpyxl.Workbook()
+sheet = book.active
+num = 0
+string = []
+for row in range(1, 3):  # sheet.max_row+1):
+    word = sheet[row][0].value
+    print(word)
+    for strn in range(len(word)):
+        print(str(word[strn]))
+        if str(word[strn]) in digits:
+            string.append(word[strn])
+            num = len(string)
+            print('IF = ', num, string)
+        else:
+            print('Else = ', num, string)
+
+book.save('His_res.xlsx')
+book.close()
+# book_res.save('His_res.xlsx')
+# book_res.close()
